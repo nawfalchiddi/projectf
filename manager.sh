@@ -15,20 +15,21 @@ while true; do
         elif [ "$age" -gt 60 ]; then
             echo "Too old, not allowed."
         else
-            echo "$name - Age: $age" >> "$students.txt"
+            echo "$name - Age: $age" >> students.txt
             echo "Student added."
         fi
     elif [ "$opt" == "2" ]; then
         echo "--- Student List ---"
-        cat "$students.txt"
+	cat students.txt
     elif [ "$opt" == "3" ]; then
         read -p "Search name: " searchname
-        if grep -q "$searchname" "$students.txt"; then
-            grep "$searchname" "$students.txt"
+        if grep -q $searchname students.txt ; then
+            grep $searchname students.txt
         else
             echo "Not Found"
         fi
     elif [ "$opt" == "4" ]; then
+	    echo "exiting..."
         break
     else
         echo "Invalid option."
